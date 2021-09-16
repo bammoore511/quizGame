@@ -1,5 +1,6 @@
 from data import *
 from question_model import Question
+from quiz_brain import QuizBrain
 
 # create banks of questions
 easy_questions = []
@@ -23,3 +24,7 @@ for question in hard_data:
     question_answer = question["correct_answer"]
     new_question = Question(question_text, question_answer)
     hard_questions.append(new_question)
+
+easy_quiz = QuizBrain(easy_questions)
+medium_quiz = QuizBrain(medium_questions)
+hard_quiz = QuizBrain(hard_questions)
