@@ -1,5 +1,5 @@
 # Question data from Open Trivia DB
-easy_questions = [
+easy_data = [
     {"category": "Animals", "type": "boolean", "difficulty": "easy",
      "question": "The Axolotl is an amphibian that can spend its whole life in a larval state.",
      "correct_answer": "True", "incorrect_answers": ["False"]},
@@ -114,7 +114,7 @@ easy_questions = [
      "question": "The mitochondria is the powerhouse of the cell.",
      "correct_answer": "True", "incorrect_answers": ["False"]}]
 
-medium_questions = [
+medium_data = [
     {"category": "Science & Nature", "type": "boolean", "difficulty": "medium",
      "question": "The Doppler effect applies to light.", "correct_answer": "True", "incorrect_answers": ["False"]},
     {"category": "Entertainment: Video Games", "type": "boolean", "difficulty": "medium",
@@ -195,7 +195,7 @@ medium_questions = [
     {"category": "Geography", "type": "boolean", "difficulty": "medium", "question": "Is Tartu the capital of Estonia?",
      "correct_answer": "False", "incorrect_answers": ["True"]}]
 
-hard_questions = [
+hard_data = [
     {"category": "General Knowledge", "type": "boolean", "difficulty": "hard",
      "question": "This is the correct spelling of &quot;Supercalifragilisticexpialidocious&quot;.",
      "correct_answer": "True", "incorrect_answers": ["False"]},
