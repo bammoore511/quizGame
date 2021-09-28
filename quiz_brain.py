@@ -1,4 +1,12 @@
 import html
+import requests
+
+# Get the question data from the Open Trivia API based on the chosen difficulty
+def get_data(difficulty: str):
+    parameters = {"amount": 10, "type": "boolean", "difficulty": difficulty.lower()}
+    trivia = requests.get(url="https://opentdb.com/api.php", params=parameters)
+    trivia.raise_for_status()
+    return trivia.json()['results']
 
 
 class QuizBrain:
