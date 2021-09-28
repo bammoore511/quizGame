@@ -1,6 +1,10 @@
-from data import *
 from question_model import Question
 from quiz_brain import QuizBrain
+import requests
+# Question data from Open Trivia DB API
+trivia = requests.get(url="https://opentdb.com/api.php?amount=10&type=boolean")
+
+question_data = trivia.json()['results']
 
 # create banks of questions
 easy_questions = []
