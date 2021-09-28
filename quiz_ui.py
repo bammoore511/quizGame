@@ -17,7 +17,6 @@ class QuizUI:
             font=("Arial", 20)
         )
         self.score_label.grid(row=0, column=1)
-
         self.q_label = Label(
             text=f"Question: {self.quiz.question_number}",
             fg="white",
@@ -50,14 +49,16 @@ class QuizUI:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.question_canvas.config(bg="white")
         if self.quiz.has_more_questions():
-            self.question_canvas.config(bg="white")
             self.score_label.config(text=f"Score: {self.quiz.score}")
-            self.q_label.config(text=f"Question: {self.quiz.question_number}")
+            self.q_label.config(text=f"Question: {self.quiz.question_number + 1}")
             q_text = self.quiz.next_question()
             self.question_canvas.itemconfig(self.question_text, text=q_text)
         else:
             self.question_canvas.itemconfig(self.question_text, text="Quiz Over :)")
+            self.false_button.config(command=NONE)
+            self.true_button.config(command=NONE)
 
     def true_pressed(self):
         self.respond(self.quiz.check_answer("True"))

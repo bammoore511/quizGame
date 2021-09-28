@@ -3,7 +3,6 @@ from question_model import Question
 from quiz_brain import QuizBrain, get_data
 from quiz_ui import QuizUI
 from tkinter import *
-import requests
 
 # Initial UI Setup
 initial_window = Tk()
@@ -66,7 +65,7 @@ med_button = Button(
     bg="#f2cb05",
     font=('Arial', 15),
     bd=0,
-    command=lambda: next_page("med")
+    command=lambda: next_page("medium")
 )
 med_button.grid(column=1, row=2)
 
