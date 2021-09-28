@@ -27,7 +27,7 @@ def next_page(difficulty: str):
         questions.append(new_question)
 
     quiz = QuizBrain(questions)
-    ui = QuizUI(quiz)
+    QuizUI(quiz)
 
 
 title = Label(
@@ -36,7 +36,8 @@ title = Label(
     pady=20,
     bg='#262626',
     fg="#d9048e",
-    font=('Arial', 35))
+    font=('Arial', 35)
+)
 title.grid(column=0, row=0, columnspan=3)
 
 difficulty_label = Label(
@@ -45,7 +46,8 @@ difficulty_label = Label(
     pady=40,
     bg='#262626',
     fg="#d9048e",
-    font=('Arial', 20))
+    font=('Arial', 20)
+)
 difficulty_label.grid(column=0, row=1, columnspan=3)
 
 easy_button = Button(
@@ -53,7 +55,8 @@ easy_button = Button(
     padx=10,
     bg="#9b0bd9",
     font=('Arial', 15),
-    command=lambda: next_page("easy"))
+    command=lambda: next_page("easy")
+)
 easy_button.grid(column=0, row=2)
 
 med_button = Button(
@@ -61,7 +64,8 @@ med_button = Button(
     padx=10,
     bg="#f2cb05",
     font=('Arial', 15),
-    command=lambda: next_page("med"))
+    command=lambda: next_page("med")
+)
 med_button.grid(column=1, row=2)
 
 hard_button = Button(
@@ -69,7 +73,8 @@ hard_button = Button(
     padx=10,
     bg="#2bc7d9",
     font=('Arial', 15),
-    command=lambda: next_page("hard"))
+    command=lambda: next_page("hard")
+)
 hard_button.grid(column=2, row=2)
 
 initial_window.mainloop()

@@ -1,6 +1,7 @@
 import html
 import requests
 
+
 # Get the question data from the Open Trivia API based on the chosen difficulty
 def get_data(difficulty: str):
     parameters = {"amount": 10, "type": "boolean", "difficulty": difficulty.lower()}
@@ -22,9 +23,8 @@ class QuizBrain:
     def next_question(self):
         current_question = self.question_list[self.question_number]
         self.question_number += 1
-
-        user_answer = input(f"Q.{self.question_number}: {html.unescape(current_question.text)} (True/False): ")
-        self.check_answer(user_answer, current_question.answer)
+        return html.unescape(current_question.text)
+        #self.check_answer(user_answer, current_question.answer)
 
     def check_answer(self, user_answer, correct_answer):
         if user_answer.lower() == "t":
