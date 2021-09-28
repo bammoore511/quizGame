@@ -55,6 +55,7 @@ easy_button = Button(
     padx=10,
     bg="#9b0bd9",
     font=('Arial', 15),
+    bd=0,
     command=lambda: next_page("easy")
 )
 easy_button.grid(column=0, row=2)
@@ -64,6 +65,7 @@ med_button = Button(
     padx=10,
     bg="#f2cb05",
     font=('Arial', 15),
+    bd=0,
     command=lambda: next_page("med")
 )
 med_button.grid(column=1, row=2)
@@ -73,6 +75,7 @@ hard_button = Button(
     padx=10,
     bg="#2bc7d9",
     font=('Arial', 15),
+    bd=0,
     command=lambda: next_page("hard")
 )
 hard_button.grid(column=2, row=2)

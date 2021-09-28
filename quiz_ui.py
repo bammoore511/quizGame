@@ -38,11 +38,11 @@ class QuizUI:
         self.question_canvas.grid(row=1, column=0, columnspan=2, pady=50)
 
         true_image = PhotoImage(file="assets/true.png")
-        self.true_button = Button(image=true_image, highlightthickness=0)
+        self.true_button = Button(image=true_image, highlightthickness=0, bd=0, command=self.true_pressed)
         self.true_button.grid(row=2, column=0)
 
         false_image = PhotoImage(file="assets/false.png")
-        self.false_button = Button(image=false_image, highlightthickness=0)
+        self.false_button = Button(image=false_image, highlightthickness=0, bd=0, command=self.false_pressed)
         self.false_button.grid(row=2, column=1)
 
         self.get_next_question()
@@ -50,5 +50,25 @@ class QuizUI:
         self.window.mainloop()
 
     def get_next_question(self):
-        q_text = self.quiz.next_question()
-        self.question_canvas.itemconfig(self.question_text, text=q_text)
+        if self.quiz.has_more_questions():
+            self.question_canvas.config(bg="white")
+            self.score_label.config(text=f"Score: {self.quiz.score}")
+            self.q_label.config(text=f"Question: {self.quiz.question_number}")
+            q_text = self.quiz.next_question()
+            self.question_canvas.itemconfig(self.question_text, text=q_text)
+        else:
+            self.question_canvas.itemconfig(self.question_text, text="Quiz Over :)")
+
+    def true_pressed(self):
+        self.respond(self.quiz.check_answer("True"))
+
+    def false_pressed(self):
+        self.respond(self.quiz.check_answer("False"))
+
+    def respond(self, is_right: bool):
+        if is_right:
+            self.question_canvas.config(bg="green")
+        else:
+            self.question_canvas.config(bg="red")
+        self.question_canvas.update()
+        self.window.after(1000, self.get_next_question())

@@ -16,27 +16,20 @@ class QuizBrain:
         self.question_number = 0
         self.question_list = q_list
         self.score = 0
+        self.current_question = None
 
-    def has_more_questions(self):
+    def has_more_questions(self) -> bool:
         return self.question_number < len(self.question_list)
 
-    def next_question(self):
-        current_question = self.question_list[self.question_number]
+    def next_question(self) -> str:
+        self.current_question = self.question_list[self.question_number]
         self.question_number += 1
-        return html.unescape(current_question.text)
-        #self.check_answer(user_answer, current_question.answer)
+        return html.unescape(self.current_question.text)
 
-    def check_answer(self, user_answer, correct_answer):
-        if user_answer.lower() == "t":
-            user_answer = "true"
-        elif user_answer.lower() == "f":
-            user_answer = "false"
-        # else:
-        #     print("Please enter a valid response.")
+    def check_answer(self, user_answer: str) -> bool:
 
-        if user_answer.lower() == correct_answer.lower():
+        if user_answer == self.current_question.answer:
             self.score += 1
-            print("You got it right!")
+            return True
         else:
-            print(f"Wrong. The correct answer was {correct_answer}")
-        print(f"Your current score is: {self.score} / {self.question_number}\n")
+            return False
