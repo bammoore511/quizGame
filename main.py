@@ -23,3 +23,6 @@ for question in question_data:
     questions.append(new_question)
 
 quiz = QuizBrain(questions)
+
+while quiz.has_more_questions():
+    quiz.next_question()
