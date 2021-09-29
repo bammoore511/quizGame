@@ -1,8 +1,8 @@
+from tkinter import *
 import quiz_brain
 from question_model import Question
-from quiz_brain import QuizBrain, get_data
+from quiz_brain import QuizBrain
 from quiz_ui import QuizUI
-from tkinter import *
 
 # Initial UI Setup
 initial_window = Tk()
@@ -11,7 +11,7 @@ initial_window.config(padx=30, pady=30, bg="#262626")
 
 
 # Function to go to main page after difficulty is chosen
-def next_page(difficulty: str):
+def next_page(difficulty: str, ):
     initial_window.destroy()
     # get data
     question_data = quiz_brain.get_data(difficulty)
@@ -54,6 +54,7 @@ easy_button = Button(
     padx=10,
     bg="#9b0bd9",
     font=('Arial', 15),
+    highlightthickness=0,
     bd=0,
     command=lambda: next_page("easy")
 )
@@ -64,6 +65,7 @@ med_button = Button(
     padx=10,
     bg="#f2cb05",
     font=('Arial', 15),
+    highlightthickness=0,
     bd=0,
     command=lambda: next_page("medium")
 )
@@ -74,6 +76,7 @@ hard_button = Button(
     padx=10,
     bg="#2bc7d9",
     font=('Arial', 15),
+    highlightthickness=0,
     bd=0,
     command=lambda: next_page("hard")
 )
